@@ -1,0 +1,1242 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Multilingual Visibility Logic */
+.lang-kk,
+.lang-ru {
+  display: none !important;
+}
+
+body.lang-kk-active .lang-kk {
+  display: inline-block !important;
+  /* Default to inline for text spans */
+}
+
+body.lang-kk-active div.lang-kk,
+body.lang-kk-active section.lang-kk,
+body.lang-kk-active tr.lang-kk {
+  display: block !important;
+}
+
+/* Flex items need flex */
+body.lang-kk-active .flex-item.lang-kk {
+  display: flex !important;
+}
+
+/* Table rows */
+body.lang-kk-active tr.lang-kk {
+  display: table-row !important;
+}
+
+body.lang-ru-active .lang-ru {
+  display: inline-block !important;
+}
+
+body.lang-ru-active div.lang-ru,
+body.lang-ru-active section.lang-ru,
+body.lang-ru-active tr.lang-ru {
+  display: block !important;
+}
+
+body.lang-ru-active .flex-item.lang-ru {
+  display: flex !important;
+}
+
+body.lang-ru-active tr.lang-ru {
+  display: table-row !important;
+}
+
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #ff9900;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #0066cc;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0066cc;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Language Switcher Styling */
+.lang-switch {
+  text-decoration: none;
+  padding: 6px 16px;
+  border: 2px solid #0066cc;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  margin-left: 5px;
+  color: #0066cc !important;
+  /* Default color (inactive) */
+  background-color: transparent;
+}
+
+.lang-switch:hover {
+  background-color: #e6f0ff;
+  color: #0052a3 !important;
+  transform: translateY(-2px);
+}
+
+.lang-switch.active {
+  background-color: #0066cc;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(0, 102, 204, 0.3);
+}
+
+.lang-switch::after {
+  display: none !important;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  /* Maintain position context */
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #f0f0f0;
+}
+
+.hero-dates {
+  font-size: 1.2rem;
+  color: #ffcc00;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.hero-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.tag {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+}
+
+/* Main Content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.section {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 3rem;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #0066cc;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #ffcc00;
+  display: inline-block;
+}
+
+.section-content {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* Biography */
+.bio-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bio-image {
+  float: right;
+  width: 300px;
+  height: auto;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tables (Books & Awards) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+table,
+th,
+td {
+  border: 1px solid #e0e0e0;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #0066cc;
+  color: #fff;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f7ff;
+}
+
+/* Awards Grid */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.award-card {
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 4px solid #ff9900;
+}
+
+.award-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.award-icon {
+  font-size: 2.5rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+}
+
+/* Article Links */
+.links-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.article-link {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  border-left: 4px solid #ffcc00;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: block;
+}
+
+.article-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
+}
+
+.article-link h4 {
+  margin: 0;
+  color: #0066cc;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.article-link p {
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #003366;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.footer-links li {
+  margin: 0 1rem;
+}
+
+.footer-links a {
+  color: #ffcc00;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.copyright {
+  margin-top: 2rem;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Multimedia Responsive */
+iframe {
+  max-width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #f0f0f0;
+  }
+
+  .hero-dates {
+    font-size: 1.2rem;
+    color: #ffcc00;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .hero-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .tag {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+  }
+
+  /* Main Content */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  .section {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    color: #0066cc;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #ffcc00;
+    display: inline-block;
+  }
+
+  .section-content {
+    font-size: 1.1rem;
+    color: #444;
+  }
+
+  /* Biography */
+  .bio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .bio-image {
+    float: right;
+    width: 300px;
+    height: auto;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Tables (Books & Awards) */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid #e0e0e0;
+  }
+
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #0066cc;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #f1f7ff;
+  }
+
+  /* Awards Grid */
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .award-card {
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid #ff9900;
+  }
+
+  .award-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .award-icon {
+    font-size: 2.5rem;
+    color: #ff9900;
+    margin-bottom: 1rem;
+  }
+
+  /* Footer */
+  .footer {
+    background-color: #003366;
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: auto;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 2rem 0;
+  }
+
+  .footer-links li {
+    margin: 0 1rem;
+  }
+
+  .footer-links a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: white;
+  }
+
+  .copyright {
+    margin-top: 2rem;
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+
+  /* Multimedia Responsive */
+  iframe {
+    max-width: 100%;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-container {
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .nav-links {
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links li {
+      margin: 0.5rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .bio-image {
+      float: none;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 2rem;
+      display: block;
+    }
+  }
+
+  /* Fix for flex/grid items */
+  body.lang-kk-active .lang-kk.flex-item {
+    display: flex;
+  }
+
+  body.lang-ru-active .lang-ru.flex-item {
+    display: flex;
+  }
+
+}
+
+/* Main Content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.section {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 3rem;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #0066cc;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #ffcc00;
+  display: inline-block;
+}
+
+.section-content {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* Biography */
+.bio-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bio-image {
+  float: right;
+  width: 300px;
+  height: auto;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tables (Books & Awards) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+table,
+th,
+td {
+  border: 1px solid #e0e0e0;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #0066cc;
+  color: #fff;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f7ff;
+}
+
+/* Awards Grid */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.award-card {
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 4px solid #ff9900;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.award-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.award-icon {
+  font-size: 2.5rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+}
+
+.award-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+.award-year {
+  font-size: 0.9rem;
+  color: #666;
+  background-color: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+
+/* Footer */
+.footer {
+  background-color: #003366;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.footer-links li {
+  margin: 0 1rem;
+}
+
+.footer-links a {
+  color: #ffcc00;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.copyright {
+  margin-top: 2rem;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Multimedia Responsive */
+iframe {
+  max-width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .bio-image {
+    float: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+    display: block;
+  }
+}
+
+/* Fix for flex/grid items */
+body.lang-kk-active .lang-kk.flex-item {
+  display: flex;
+}
+
+body.lang-ru-active .lang-ru.flex-item {
+  display: flex;
+}
+
+/* Main Content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.section {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 3rem;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #0066cc;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #ffcc00;
+  display: inline-block;
+}
+
+.section-content {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* Biography */
+.bio-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bio-image {
+  float: right;
+  width: 300px;
+  height: auto;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tables (Books & Awards) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+table,
+th,
+td {
+  border: 1px solid #e0e0e0;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #0066cc;
+  color: #fff;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f7ff;
+}
+
+/* Awards Grid */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.award-card {
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 4px solid #ff9900;
+}
+
+.award-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.award-icon {
+  font-size: 2.5rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #003366;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.footer-links li {
+  margin: 0 1rem;
+}
+
+.footer-links a {
+  color: #ffcc00;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.copyright {
+  margin-top: 2rem;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Multimedia Responsive */
+iframe {
+  max-width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .bio-image {
+    float: none;
+    width: 100%;
+    max-width: 400px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+    display: block;
+  }
+}
+
+/* Fix for flex/grid items */
+body.lang-kk-active .lang-kk.flex-item {
+  display: flex;
+}
+
+body.lang-ru-active .lang-ru.flex-item {
+  display: flex;
+}
+
+/* Main Content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.section {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 3rem;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #0066cc;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #ffcc00;
+  display: inline-block;
+}
+
+.section-content {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* Biography */
+.bio-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bio-image {
+  float: right;
+  width: 300px;
+  height: auto;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tables (Books & Awards) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+table,
+th,
+td {
+  border: 1px solid #e0e0e0;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #0066cc;
+  color: #fff;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f7ff;
+}
+
+/* Awards Grid */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.award-card {
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 4px solid #ff9900;
+}
+
+.award-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.award-icon {
+  font-size: 2.5rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #003366;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.footer-links li {
+  margin: 0 1rem;
+}
+
+.footer-links a {
+  color: #ffcc00;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.copyright {
+  margin-top: 2rem;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Multimedia Responsive */
+iframe {
+  max-width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .bio-image {
+    float: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+    display: block;
+  }
+}
+
+/* Fix for flex/grid items */
+body.lang-kk-active .lang-kk.flex-item {
+  display: flex;
+}
+
+body.lang-ru-active .lang-ru.flex-item {
+  display: flex;
+}
+
+/* Table rows */
+body.lang-kk-active tr.lang-kk {
+  display: table-row;
+}
+
+body.lang-ru-active tr.lang-ru {
+  display: table-row;
+}
